@@ -3,32 +3,41 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Kigali Kitchen: 30-day meal plan</title>
-  <meta name="theme-color" content="#1f6f50" />
+  <title>Kigali Kitchen</title>
+  <meta name="theme-color" content="#16171a" />
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" href="icons/icon-192.png" />
   <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="topbar">
     <div class="brand">
-      <span class="logo">🍲</span>
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 15h24a12 12 0 0 1-24 0Z" fill="currentColor"/><path d="M11 5c-2 2 2 3 0 6M16 4c-2 2 2 3 0 6M21 5c-2 2 2 3 0 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
       <div>
         <h1>Kigali Kitchen</h1>
-        <p class="sub">30 days · 3 meals + snacks · 1 person · Simba &amp; Spar</p>
+        <p class="sub" id="subline">Day 1 of 30</p>
       </div>
     </div>
-    <button class="budget-pill" id="budgetPill" title="Monthly cost estimate vs your budget"></button>
+    <div class="top-actions">
+      <button class="budget-pill" id="budgetPill" title="Month cost vs budget"></button>
+      <button class="icon-btn" id="guideBtn" aria-label="Guide and settings">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v6M12 7.5v.01" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
   </header>
 
   <main id="view"></main>
 
-  <nav class="tabbar">
-    <button data-tab="plan" class="active"><span>📅</span>Plan</button>
-    <button data-tab="recipes"><span>📖</span>Recipes</button>
-    <button data-tab="shop"><span>🛒</span>Shopping</button>
-    <button data-tab="tips"><span>🧊</span>Prep &amp; tips</button>
+  <nav class="tabbar" aria-label="Main">
+    <button data-tab="plan"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 10h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Plan</button>
+    <button data-tab="recipes"><svg viewBox="0 0 24 24"><path d="M5 4.5h10a3 3 0 0 1 3 3v12H8a3 3 0 0 1-3-3Z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5 16.5a3 3 0 0 1 3-3h10M9 8h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Recipes</button>
+    <button data-tab="shop"><svg viewBox="0 0 24 24"><path d="M3 4h2.5l2.2 11h10.6L20.5 7.5H6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/><circle cx="9" cy="19.5" r="1.5" fill="currentColor"/><circle cx="17" cy="19.5" r="1.5" fill="currentColor"/></svg>Shop</button>
+    <button data-tab="pantry"><svg viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 9.5h16M4 15h16M9 6.5h2M9 12h2M9 17.7h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Pantry</button>
+    <button data-tab="money"><svg viewBox="0 0 24 24"><path d="M6 3.5h12v17l-2-1.4-2 1.4-2-1.4-2 1.4-2-1.4-2 1.4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.5h6M9 12h6M9 15.5h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Spending</button>
   </nav>
 
   <div class="modal" id="modal" hidden>
@@ -37,6 +46,7 @@
       <div id="modalBody"></div>
     </div>
   </div>
+  <div class="toast" id="toast" hidden></div>
 
   <script src="data.js"></script>
   <script src="app.js"></script>
