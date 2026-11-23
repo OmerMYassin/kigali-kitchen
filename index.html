@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Kigali Kitchen: 30-day meal plan</title>
+  <meta name="theme-color" content="#1f6f50" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">🍲</span>
+      <div>
+        <h1>Kigali Kitchen</h1>
+        <p class="sub">30 days · 3 meals + snacks · 1 person · Simba &amp; Spar</p>
+      </div>
+    </div>
+    <button class="budget-pill" id="budgetPill" title="Monthly cost estimate vs your budget"></button>
+  </header>
+
+  <main id="view"></main>
+
+  <nav class="tabbar">
+    <button data-tab="plan" class="active"><span>📅</span>Plan</button>
+    <button data-tab="recipes"><span>📖</span>Recipes</button>
+    <button data-tab="shop"><span>🛒</span>Shopping</button>
+    <button data-tab="tips"><span>🧊</span>Prep &amp; tips</button>
+  </nav>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <button class="close" id="modalClose" aria-label="Close">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
